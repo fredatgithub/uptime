@@ -6,6 +6,10 @@
 *.user
 *.sln.docstates
 
+# Zipped archives files
+*.zip
+*.rar
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
