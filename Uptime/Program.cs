@@ -27,7 +27,7 @@ namespace Uptime
   {
     static void Main()
     {
-      Action<string> display = s => Console.WriteLine(s);
+      Action<string> display = Console.WriteLine;
       display("UpTime.exe is a Freeware written by Freddy Juhel in 2013\n");
       var ts = TimeSpan.FromMilliseconds(Environment.TickCount);
       int nombreDeTicks = Environment.TickCount; // &Int32.MaxValue;
