@@ -27,21 +27,14 @@ namespace Uptime
   {
     static void Main()
     {
-      Action<string> display = s => Console.WriteLine();
-      Console.WriteLine("UpTime.exe is a Freeware written by Freddy Juhel in 2013\n");
-
-      //Console.WriteLine(dt.ToString("dd:HH:mm:ss:ff"));
-
-      //string myDate = new DateTime(Environment.TickCount).ToString("dd:HH:mm:ss:ms");
-
+      Action<string> display = s => Console.WriteLine(s);
+      display("UpTime.exe is a Freeware written by Freddy Juhel in 2013\n");
       var ts = TimeSpan.FromMilliseconds(Environment.TickCount);
-
       int nombreDeTicks = Environment.TickCount; // &Int32.MaxValue;
-
       Console.WriteLine("System is up since {0:HH:mm:ss} milliseconds\n", Environment.TickCount.ToString(CultureInfo.CurrentCulture));
       Console.WriteLine("which is {0} day{1} {2} hour{3} {4} minute{5} {6} second{7} {8} millisecond{9}\n",
         ts.Days, Plural(ts.Days), ts.Hours, Plural(ts.Hours), ts.Minutes, Plural(ts.Minutes), ts.Seconds, Plural(ts.Seconds), ts.Milliseconds, Plural(ts.Milliseconds));
-      Console.WriteLine("Press a key to exit:");
+      display("Press a key to exit:");
       Console.ReadKey();
     }
 
@@ -90,39 +83,39 @@ namespace Uptime
       return number > 1 ? "s" : string.Empty;
     }
 
-    private static string BuildUpTime(int temps)
+    private static string BuildUpTime(int time)
     {
       StringBuilder result = new StringBuilder();
-      if (HasHours(temps))
+      if (HasHours(time))
       {
-        result.Append(temps / 216000000);
+        result.Append(time / 216000000);
       }
       else
       {
         result.Append("00 hour ");
       }
 
-      if (HasMinutes(temps))
+      if (HasMinutes(time))
       {
-        result.Append(temps / 216000000);
+        result.Append(time / 216000000);
       }
       else
       {
         result.Append("00 minute ");
       }
 
-      if (HasSeconds(temps))
+      if (HasSeconds(time))
       {
-        result.Append(temps / 216000000);
+        result.Append(time / 216000000);
       }
       else
       {
         result.Append("00 second ");
       }
 
-      if (HasMilliSeconds(temps))
+      if (HasMilliSeconds(time))
       {
-        result.Append(temps / 216000000);
+        result.Append(time / 216000000);
       }
       else
       {
@@ -132,24 +125,24 @@ namespace Uptime
       return result.ToString();
     }
 
-    private static bool HasHours(int temps)
+    private static bool HasHours(int time)
     {
-      return ((temps / 216000000) > 0);
+      return ((time / 216000000) > 0);
     }
 
-    private static bool HasMinutes(int temps)
+    private static bool HasMinutes(int time)
     {
-      return ((temps / 3600000) > 0);
+      return ((time / 3600000) > 0);
     }
 
-    private static bool HasSeconds(int temps)
+    private static bool HasSeconds(int time)
     {
-      return ((temps / 60000) > 0);
+      return ((time / 60000) > 0);
     }
 
-    private static bool HasMilliSeconds(int temps)
+    private static bool HasMilliSeconds(int time)
     {
-      return temps > 0;
+      return time > 0;
     }
   }
 }
