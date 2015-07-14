@@ -19,7 +19,6 @@ SOFTWARE.
 */
 using System;
 using System.Globalization;
-using System.Text;
 
 namespace Uptime
 {
@@ -38,111 +37,9 @@ namespace Uptime
       Console.ReadKey();
     }
 
-    private static string Plural(double number)
-    {
-      return number > 1 ? "s" : string.Empty;
-    }
-    private static string Plural(byte number)
-    {
-      return number > 1 ? "s" : string.Empty;
-    }
-    private static string Plural(sbyte number)
-    {
-      return number > 1 ? "s" : string.Empty;
-    }
-    private static string Plural(Int16 number)
-    {
-      return number > 1 ? "s" : string.Empty;
-    }
     private static string Plural(Int32 number)
     {
       return number > 1 ? "s" : string.Empty;
-    }
-    private static string Plural(Int64 number)
-    {
-      return number > 1 ? "s" : string.Empty;
-    }
-    private static string Plural(UInt16 number)
-    {
-      return number > 1 ? "s" : string.Empty;
-    }
-    private static string Plural(UInt32 number)
-    {
-      return number > 1 ? "s" : string.Empty;
-    }
-    private static string Plural(UInt64 number)
-    {
-      return number > 1 ? "s" : string.Empty;
-    }
-    private static string Plural(float number)
-    {
-      return number > 1 ? "s" : string.Empty;
-    }
-    private static string Plural(decimal number)
-    {
-      return number > 1 ? "s" : string.Empty;
-    }
-
-    private static string BuildUpTime(int time)
-    {
-      StringBuilder result = new StringBuilder();
-      if (HasHours(time))
-      {
-        result.Append(time / 216000000);
-      }
-      else
-      {
-        result.Append("00 hour ");
-      }
-
-      if (HasMinutes(time))
-      {
-        result.Append(time / 216000000);
-      }
-      else
-      {
-        result.Append("00 minute ");
-      }
-
-      if (HasSeconds(time))
-      {
-        result.Append(time / 216000000);
-      }
-      else
-      {
-        result.Append("00 second ");
-      }
-
-      if (HasMilliSeconds(time))
-      {
-        result.Append(time / 216000000);
-      }
-      else
-      {
-        result.Append("00 millisecond ");
-      }
-
-      return result.ToString();
-    }
-
-    private static bool HasHours(int time)
-    {
-      return ((time / 216000000) > 0);
-    }
-
-    private static bool HasMinutes(int time)
-    {
-      return ((time / 3600000) > 0);
-    }
-
-    private static bool HasSeconds(int time)
-    {
-      return ((time / 60000) > 0);
-    }
-
-    private static bool HasMilliSeconds(int time)
-    {
-      return time > 0;
     }
   }
 }
