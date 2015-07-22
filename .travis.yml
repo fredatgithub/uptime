@@ -1,0 +1,4 @@
+language: csharp
+solution: uptime.sln
+notifications:
+  email: false
