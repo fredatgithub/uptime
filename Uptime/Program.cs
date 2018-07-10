@@ -3,9 +3,9 @@ using System.Globalization;
 
 namespace Uptime
 {
-  class Program
+  internal class Program
   {
-    static void Main()
+    private static void Main()
     {
       Action<string> display = Console.WriteLine;
       display("UpTime.exe is a Freeware written by Freddy Juhel in 2013\n");
@@ -18,7 +18,7 @@ namespace Uptime
       Console.ReadKey();
     }
 
-    private static string Plural(Int32 number)
+    private static string Plural(int number)
     {
       return number > 1 ? "s" : string.Empty;
     }
